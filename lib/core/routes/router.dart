@@ -7,7 +7,7 @@ enum Pages { home, splash }
 final router = GoRouter(
   routes: [
     GoRoute(
-      path: '/',
+      path: '/home',
       name: Pages.splash.name,
       builder: (context, state) {
         Future.delayed(const Duration(seconds: 2), () {
@@ -18,7 +18,7 @@ final router = GoRouter(
       },
     ),
     GoRoute(
-      path: '/home',
+      path: '/',
       name: Pages.home.name,
       builder: (context, state) => const HomePage(),
     ),

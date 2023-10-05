@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kimberly/core/ui/widgets/export_layouts.dart';
+import 'package:kimberly/core/ui/layouts/export_layouts.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
