@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AreaCard extends StatelessWidget {
   final String title;
@@ -10,12 +11,25 @@ class AreaCard extends StatelessWidget {
     required this.description,
   });
 
+  TextStyle get titleStyle => GoogleFonts.roboto(
+        fontSize: 20,
+        color: Colors.black,
+        fontWeight: FontWeight.bold,
+      );
+
+  TextStyle get textStyle => GoogleFonts.roboto(
+        fontSize: 20,
+        color: Colors.black,
+        fontWeight: FontWeight.normal,
+      );
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 200,
-      width: 470,
+      width: 450,
       child: Card(
+        color: Colors.white,
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
@@ -23,11 +37,18 @@ class AreaCard extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: const TextStyle(fontSize: 20),
+                style: titleStyle,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
+              ),
+              const SizedBox(
+                height: 10,
               ),
               Text(
                 description,
-                style: const TextStyle(fontSize: 16),
+                style: textStyle,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 4,
               ),
             ],
           ),
