@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
           } else if (constraints.maxWidth >= 600 &&
               constraints.maxWidth < 1024) {
             // Layout para tablets
-            return TabletLayout(maxWidth: constraints.maxWidth);
+            return const TabletLayout();
           } else {
             // Layout para desktop
             return const DesktopLayout();
