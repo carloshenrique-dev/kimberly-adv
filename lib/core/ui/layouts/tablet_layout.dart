@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:kimberly/core/consts/consts.dart';
 import 'package:kimberly/core/ui/widgets/header.dart';
 
+import '../widgets/kimberly_card.dart';
+
 class TabletLayout extends StatelessWidget {
   const TabletLayout({
     super.key,
@@ -29,8 +31,9 @@ class TabletLayout extends StatelessWidget {
                 const Header(
                   fit: BoxFit.cover,
                 ),
-                const SizedBox(
-                  height: 20,
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: CardView(),
                 ),
                 Container(
                   width: MediaQuery.sizeOf(context).width,

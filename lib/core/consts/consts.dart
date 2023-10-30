@@ -7,7 +7,7 @@ sealed class LandingPageConsts {
       title: 'Ambiental',
       description:
           'Assistência nas fases do licenciamento ambiental, incluindo análise de impacto ambiental, consultoria em normativas e regulamentações, e estratégias de mitigação de impacto ambiental.',
-      icon: Icons.eco,
+      icon: Icons.forest,
     ),
     const AreaCard(
       title: 'Cível',
@@ -56,6 +56,24 @@ sealed class LandingPageConsts {
       description:
           'Suporte abrangente para planejamento tributário, redução da carga tributária e resolução de questões relacionadas a impostos, tanto em contextos contenciosos quanto consultivos. Nossa equipe jurídica está bem preparada para otimizar a gestão tributária de sua empresa, garantindo conformidade e maximizando economias.',
       icon: Icons.attach_money,
+    ),
+    const AreaCard(
+      title: 'Direito Canábico',
+      description:
+          'Oferecemos assessoria jurídica especializada, incluindo serviços de consultoria, habeas corpus e ações públicas relacionadas ao uso e regulamentação de cannabis.',
+      icon: Icons.eco,
+    ),
+    const AreaCard(
+      title: 'Mediação judicial\ne extrajudicial',
+      description:
+          'Assessoria, acompanhamento de acordos, implementação de composição pré processo e no decorrer do processo, utilização de humanização e pacificação',
+      icon: Icons.handshake,
+    ),
+    const AreaCard(
+      title: 'Direito Contratual',
+      description:
+          'Oferecemos serviços abrangentes, incluindo a elaboração e revisão detalhada de contratos em diversas modalidades, garantindo segurança jurídica em todas as suas transações comerciais e contratuais.',
+      icon: Icons.edit_document,
     ),
   ];
 }

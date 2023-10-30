@@ -47,7 +47,8 @@ class AreaCard extends StatelessWidget {
                 title,
                 style: titleStyle,
                 overflow: TextOverflow.ellipsis,
-                maxLines: 1,
+                maxLines: 2,
+                textAlign: TextAlign.left,
               ),
               const SizedBox(
                 height: 10,
