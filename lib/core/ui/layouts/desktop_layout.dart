@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:kimberly/core/consts/consts.dart';
 import 'package:kimberly/core/ui/widgets/header.dart';
 
-import '../widgets/kimberly_card.dart';
+import '../widgets/about_kimberly.dart';
 
 class DesktopLayout extends StatelessWidget {
   const DesktopLayout({super.key});
@@ -30,7 +30,7 @@ class DesktopLayout extends StatelessWidget {
                   fit: BoxFit.fitWidth,
                   height: 650,
                 ),
-                const CardView(),
+                const AboutKimberly(),
                 Container(
                   width: MediaQuery.sizeOf(context).width,
                   padding: const EdgeInsets.symmetric(horizontal: 10),
