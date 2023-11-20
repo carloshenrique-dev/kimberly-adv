@@ -18,6 +18,20 @@ class TabletLayout extends StatelessWidget {
         fontWeight: FontWeight.bold,
       );
 
+  static const List<String> customers = [
+    'World fitness',
+    'Monica peres imóveis e construções',
+    'Truck diesel mecânica e autopeças',
+    'U plásticos injeção de termoplásticos',
+    'Construções gr',
+    'Castro e castro advogados associados',
+    'Alberto rollo advogados associados',
+    'Henares advogados associados',
+    'Flavia alves',
+    'Panda bebidas',
+    'Mc Dimagrinho',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,32 +45,60 @@ class TabletLayout extends StatelessWidget {
                 const Header(
                   fit: BoxFit.cover,
                 ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: AboutKimberly(),
+                const AboutKimberly(),
+                const SizedBox(
+                  height: 30,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 20, left: 20),
+                  child: Text(
+                    'Parceiros e clientes',
+                    style: titleStyle,
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
                 ),
                 Container(
                   width: MediaQuery.sizeOf(context).width,
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: CarouselSlider.builder(
-                    itemCount: 5,
-                    itemBuilder: (_, __, index) {
-                      return const SizedBox(
-                        width: 100,
+                    itemCount: customers.length,
+                    itemBuilder: (_, value, index) {
+                      return Container(
+                        width: 300,
                         height: 100,
-                        child: Icon(
-                          Icons.check,
+                        decoration: BoxDecoration(
                           color: Colors.white,
+                          borderRadius: BorderRadius.circular(
+                            20,
+                          ),
+                        ),
+                        child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            child: Text(
+                              customers[value],
+                              style: GoogleFonts.roboto(
+                                fontSize: 25,
+                                color: Colors.black,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
                         ),
                       );
                     },
                     options: CarouselOptions(
-                      height: 400.0,
+                      height: 200,
                       autoPlay: true,
                       enlargeCenterPage: true,
                       aspectRatio: 16 / 9,
                     ),
                   ),
+                ),
+                const SizedBox(
+                  height: 20,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 20, left: 20),

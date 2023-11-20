@@ -37,10 +37,11 @@ class DesktopLayout extends StatelessWidget {
                   child: CarouselSlider.builder(
                     itemCount: 5,
                     itemBuilder: (_, __, index) {
-                      return const SizedBox(
+                      return Container(
                         width: 100,
                         height: 100,
-                        child: Icon(
+                        color: Colors.amber,
+                        child: const Icon(
                           Icons.check,
                           color: Colors.white,
                         ),
