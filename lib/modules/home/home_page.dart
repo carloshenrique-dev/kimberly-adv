@@ -14,46 +14,50 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late LinksRepository _linksRepository;
-  Map<String, dynamic> _links = {};
+  final LinksRepository _linksRepository = LinksRepositoryImpl();
 
   @override
   void initState() {
-    _linksRepository = LinksRepositoryImpl();
-    _getLinks();
     super.initState();
-  }
-
-  Future<void> _getLinks() async {
-    _links = await _linksRepository.getLinks();
-    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          if (constraints.maxWidth < 600) {
-            // Layout para dispositivos móveis
-            return MobileLayout(
-              links: _links,
-              constraints: constraints.maxWidth,
-            );
-          } else if (constraints.maxWidth >= 600 &&
-              constraints.maxWidth < 1024) {
-            // Layout para tablets
-            return TabletLayout(
-              links: _links,
-              constraints: constraints.maxWidth,
-            );
-          } else {
-            // Layout para desktop
-            return DesktopLayout(
-              links: _links,
-              constraints: constraints.maxWidth,
+      body: FutureBuilder(
+        future: _linksRepository.getLinks(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return LayoutBuilder(
+              builder: (context, constraints) {
+                if (constraints.maxWidth < 600) {
+                  // Layout para dispositivos móveis
+                  return MobileLayout(
+                    links: snapshot.data!,
+                    constraints: constraints.maxWidth,
+                  );
+                } else if (constraints.maxWidth >= 600 &&
+                    constraints.maxWidth < 1024) {
+                  // Layout para tablets
+                  return TabletLayout(
+                    links: snapshot.data!,
+                    constraints: constraints.maxWidth,
+                  );
+                } else {
+                  // Layout para desktop
+                  return DesktopLayout(
+                    links: snapshot.data!,
+                    constraints: constraints.maxWidth,
+                  );
+                }
+              },
             );
           }
+          return const Center(
+            child: CircularProgressIndicator(
+              color: Colors.black,
+            ),
+          );
         },
       ),
       floatingActionButton: Container(
