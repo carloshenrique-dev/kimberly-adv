@@ -8,27 +8,20 @@ import 'package:kimberly/core/ui/widgets/header.dart';
 import '../widgets/about_kimberly.dart';
 
 class DesktopLayout extends StatelessWidget {
-  const DesktopLayout({super.key});
+  final Map<String, dynamic> links;
+  final double constraints;
+
+  const DesktopLayout({
+    super.key,
+    required this.links,
+    required this.constraints,
+  });
 
   TextStyle get titleStyle => GoogleFonts.roboto(
         fontSize: 35,
         color: Colors.white,
         fontWeight: FontWeight.bold,
       );
-
-  static const List<String> customers = [
-    'World fitness',
-    'Monica peres imóveis e construções',
-    'Truck diesel mecânica e autopeças',
-    'U plásticos injeção de termoplásticos',
-    'Construções gr',
-    'Castro e castro advogados associados',
-    'Alberto rollo advogados associados',
-    'Henares advogados associados',
-    'Flavia alves',
-    'Panda bebidas',
-    'Mc Dimagrinho',
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +37,9 @@ class DesktopLayout extends StatelessWidget {
                   fit: BoxFit.fitWidth,
                   height: 650,
                 ),
-                const AboutKimberly(),
+                AboutKimberly(
+                  constraints: constraints,
+                ),
                 const SizedBox(
                   height: 30,
                 ),
@@ -62,7 +57,7 @@ class DesktopLayout extends StatelessWidget {
                   width: MediaQuery.sizeOf(context).width,
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: CarouselSlider.builder(
-                    itemCount: customers.length,
+                    itemCount: links.length,
                     itemBuilder: (_, value, index) {
                       return Container(
                         width: 300,
@@ -77,7 +72,7 @@ class DesktopLayout extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 20),
                             child: Text(
-                              customers[value],
+                              links[value],
                               style: GoogleFonts.roboto(
                                 fontSize: 25,
                                 color: Colors.black,

@@ -1,11 +1,16 @@
 // ignore_for_file: depend_on_referenced_packages
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:kimberly/core/routes/router.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
+import 'package:kimberly/firebase_options.dart';
 
-void main() {
+Future<void> main() async {
   usePathUrlStrategy();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const App());
 }
 

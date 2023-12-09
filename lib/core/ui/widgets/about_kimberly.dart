@@ -5,7 +5,11 @@ import 'package:kimberly/core/ui/widgets/academic_timeline.dart';
 import 'package:kimberly/core/ui/widgets/work_timeline.dart';
 
 class AboutKimberly extends StatelessWidget {
-  const AboutKimberly({Key? key}) : super(key: key);
+  final double constraints;
+  const AboutKimberly({
+    super.key,
+    required this.constraints,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +51,7 @@ class AboutKimberly extends StatelessWidget {
                   height: 20,
                 ),
                 Text(
-                  "Biografia",
+                  'Biografia',
                   style: GoogleFonts.roboto(
                     color: Colors.white,
                     fontSize: 22,
@@ -59,7 +63,7 @@ class AboutKimberly extends StatelessWidget {
                   height: 20,
                 ),
                 SizedBox(
-                  width: 400,
+                  width: (constraints < 850) ? constraints - 100 : 400,
                   child: Text(
                     "Seguindo suas aspirações com fé em Deus, aos 23 anos Kimberly de Médici Varanda realizou seu sonho e da sua família de se formar em Direito.Com uma educação ímpar e dedicada de seus pais aprendeu desde cedo a importância do trabalho justo e honesto. Nascida em Jundiaí, morou em Ribeirão Preto até seus 10 anos de idade e desde então e atualmente reside em Itupeva onde se arriscou a abrir seu escritório e tem conquistado espaço e notoriedade no município. Anteriormente adquiriu experiência na procuradoria do Município de Itupeva e no Procon da cidade. Recentemente atuou no Direito Eleitoral nas eleições de 2020. Dedicada e comprometida com seus clientes e assistidos da Defensoria Pública, defende o Direito e justiça até o fim, sempre valoriza a importância da família e a proteção da mulher e menores em seus processos. Atua por amor à profissão e os clientes se somam entre os satisfeitos.",
                     style: GoogleFonts.roboto(
@@ -75,15 +79,29 @@ class AboutKimberly extends StatelessWidget {
             const SizedBox(
               width: 20,
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 60),
-              child: Image.asset(
-                'profile.png',
-                height: 600,
-                fit: BoxFit.fitWidth,
+            Visibility(
+              visible: constraints > 850,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 60),
+                child: Image.asset(
+                  'profile.png',
+                  height: 600,
+                  fit: BoxFit.fitWidth,
+                ),
               ),
-            )
+            ),
           ],
+        ),
+        Visibility(
+          visible: constraints <= 850,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 60),
+            child: Image.asset(
+              'profile.png',
+              height: 600,
+              fit: BoxFit.fitWidth,
+            ),
+          ),
         ),
         const Padding(
           padding: EdgeInsets.only(left: 50, right: 150),

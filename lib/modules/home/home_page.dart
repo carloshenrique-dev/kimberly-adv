@@ -1,11 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kimberly/core/repositories/links_repository.dart';
+import 'package:kimberly/core/repositories/links_repository_impl.dart';
 import 'package:kimberly/core/ui/layouts/export_layouts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  late LinksRepository _linksRepository;
+  Map<String, dynamic> _links = {};
+
+  @override
+  void initState() {
+    _linksRepository = LinksRepositoryImpl();
+    _getLinks();
+    super.initState();
+  }
+
+  Future<void> _getLinks() async {
+    _links = await _linksRepository.getLinks();
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,13 +36,23 @@ class HomePage extends StatelessWidget {
         builder: (context, constraints) {
           if (constraints.maxWidth < 600) {
             // Layout para dispositivos móveis
-            return const MobileLayout();
-          } else if (constraints.maxWidth >= 600 && constraints.maxWidth < 1024) {
+            return MobileLayout(
+              links: _links,
+              constraints: constraints.maxWidth,
+            );
+          } else if (constraints.maxWidth >= 600 &&
+              constraints.maxWidth < 1024) {
             // Layout para tablets
-            return const TabletLayout();
+            return TabletLayout(
+              links: _links,
+              constraints: constraints.maxWidth,
+            );
           } else {
             // Layout para desktop
-            return const DesktopLayout();
+            return DesktopLayout(
+              links: _links,
+              constraints: constraints.maxWidth,
+            );
           }
         },
       ),
@@ -43,7 +75,8 @@ class HomePage extends StatelessWidget {
             },
             icon: SvgPicture.asset(
               'assets/whatsapp.svg',
-              colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+              colorFilter:
+                  const ColorFilter.mode(Colors.white, BlendMode.srcIn),
             ),
             label: Text(
               'Fale conosco!',
