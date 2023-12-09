@@ -84,7 +84,7 @@ class AboutKimberly extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(top: 60),
                 child: Image.asset(
-                  'profile.png',
+                  'assets/profile.png',
                   height: 600,
                   fit: BoxFit.fitWidth,
                 ),

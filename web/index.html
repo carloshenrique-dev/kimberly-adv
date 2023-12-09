@@ -14,7 +14,7 @@
     This is a placeholder for base href that will be replaced by the value of
     the `--base-href` argument provided to `flutter build`.
   -->
-  <base href="/kimberly-adv-pages/">
+  <base href="/">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
@@ -40,6 +40,20 @@
   <script src="flutter.js" defer></script>
 </head>
 <body>
+  <!-- Firebase Configuration -->
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyAmVXfvzxfONg6sHvMTl3Ee4RG8WQ4SOBE",
+      authDomain: "kimberly-ecc29.firebaseapp.com",
+      projectId: "kimberly-ecc29",
+      messagingSenderId: "20386509253",
+      appId: "1:20386509253:web:6116c48cb8f9d1112ddbac",
+      measurementId: "G-SB1K4C6Z2Q",
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
   <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
