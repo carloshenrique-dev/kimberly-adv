@@ -74,6 +74,24 @@ class AcademicTimeline extends StatelessWidget {
         title: '2022: Pós-graduação em Direito Tributário na APET.',
         message: '',
       ),
+      const step.Step(
+        step: 12,
+        title:
+            '2021-2023: Membro da JARI do municipio julgando as multas de trânsito da cidade',
+        message: '',
+      ),
+      const step.Step(
+        step: 13,
+        title:
+            '2023: Membro efetivo da comissão da OAB em Direito eleitoral e Direito desportivo',
+        message: '',
+      ),
+      const step.Step(
+        step: 14,
+        title:
+            '2023-2024: Curso de conciliação e mediação judicial na MediatoEduca',
+        message: '',
+      ),
     ];
   }
 
