@@ -6,8 +6,11 @@ import 'package:timeline_tile/timeline_tile.dart';
 import '../../models/steps.dart' as step;
 
 class AcademicTimeline extends StatelessWidget {
+  final bool isMobile;
+
   const AcademicTimeline({
     super.key,
+    this.isMobile = false,
   });
 
   List<step.Step> _generateData() {
@@ -117,6 +120,7 @@ class AcademicTimeline extends StatelessWidget {
               title: step.title,
               subtitle: step.message,
               isLeftAlign: isLeftAlign,
+              isMobile: isMobile,
             );
 
             final isFirst = itemIndex == 0;
@@ -186,11 +190,13 @@ class _AcademicTimelineChild extends StatelessWidget {
     required this.title,
     required this.subtitle,
     required this.isLeftAlign,
+    this.isMobile = false,
   });
 
   final String title;
   final String subtitle;
   final bool isLeftAlign;
+  final bool isMobile;
 
   @override
   Widget build(BuildContext context) {
@@ -209,7 +215,7 @@ class _AcademicTimelineChild extends StatelessWidget {
             style: GoogleFonts.roboto(
               fontSize: 18,
               color: Colors.white,
-              fontWeight: FontWeight.bold,
+              fontWeight: isMobile ? FontWeight.normal : FontWeight.bold,
             ),
           ),
         ],

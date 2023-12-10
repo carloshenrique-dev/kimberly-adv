@@ -7,7 +7,7 @@ import 'package:kimberly/core/ui/widgets/header.dart';
 import 'package:kimberly/core/utils/get_initials.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../widgets/about_kimberly.dart';
+import '../widgets/about_kimberly_mobile.dart';
 
 class MobileLayout extends StatelessWidget {
   final Map<String, dynamic> links;
@@ -38,7 +38,7 @@ class MobileLayout extends StatelessWidget {
                 const Header(
                   fit: BoxFit.cover,
                 ),
-                AboutKimberly(
+                AboutKimberlyMobile(
                   constraints: constraints,
                 ),
                 const SizedBox(
@@ -69,8 +69,8 @@ class MobileLayout extends StatelessWidget {
                           }
                         },
                         child: Container(
-                          width: 300,
-                          height: 100,
+                          width: 200,
+                          height: 80,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(
@@ -86,11 +86,13 @@ class MobileLayout extends StatelessWidget {
                                 children: [
                                   CircleAvatar(
                                     radius: 24.0,
+                                    backgroundColor: Colors.black,
                                     child: Text(
                                       getInitials(title),
                                       style: const TextStyle(
                                         fontSize: 18.0,
                                         fontWeight: FontWeight.bold,
+                                        color: Colors.white,
                                       ),
                                     ),
                                   ),
@@ -143,7 +145,7 @@ class MobileLayout extends StatelessWidget {
                 mainAxisSpacing: 8,
                 crossAxisSpacing: 8,
                 pattern: [
-                  const WovenGridTile(1.2),
+                  const WovenGridTile(1.1),
                   const WovenGridTile(
                     1,
                     crossAxisRatio: 0.9,
@@ -152,8 +154,9 @@ class MobileLayout extends StatelessWidget {
                 ],
               ),
               childrenDelegate: SliverChildBuilderDelegate(
-                (context, index) => LandingPageConsts.areaCards[index],
-                childCount: LandingPageConsts.areaCards.length,
+                (context, index) =>
+                    LandingPageConsts.getAreaCards(constraints)[index],
+                childCount: LandingPageConsts.getAreaCards(constraints).length,
               ),
             ),
           )

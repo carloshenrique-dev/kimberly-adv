@@ -5,40 +5,62 @@ class AreaCard extends StatelessWidget {
   final String title;
   final String description;
   final IconData icon;
+  final double? constraints;
 
   const AreaCard({
     super.key,
     required this.title,
     required this.description,
     required this.icon,
+    this.constraints,
   });
 
   TextStyle get titleStyle => GoogleFonts.roboto(
-        fontSize: 28,
+        fontSize: constraints != null ? 20 : 28,
         color: Colors.black,
-        fontWeight: FontWeight.bold,
+        fontWeight: isMobile ? FontWeight.normal : FontWeight.bold,
       );
 
   TextStyle get textStyle => GoogleFonts.roboto(
-        fontSize: 22,
+        fontSize: isMobile ? 16 : 22,
         color: Colors.black,
         fontWeight: FontWeight.normal,
       );
 
+  bool get lessThan500 {
+    if (constraints != null && constraints! < 500) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  bool get isMobile {
+    if (constraints != null) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final bool isMobile = constraints != null;
+
     return Card(
       color: Colors.white,
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: IntrinsicHeight(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: isMobile && lessThan500
+                ? CrossAxisAlignment.center
+                : CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(
                 icon,
-                size: 50,
+                size: isMobile && lessThan500 ? 40 : 50,
               ),
               const SizedBox(
                 height: 10,
@@ -47,16 +69,19 @@ class AreaCard extends StatelessWidget {
                 title,
                 style: titleStyle,
                 overflow: TextOverflow.ellipsis,
-                maxLines: 2,
-                textAlign: TextAlign.left,
+                maxLines: isMobile ? 1 : 2,
+                textAlign: isMobile ? TextAlign.center : TextAlign.left,
               ),
               const SizedBox(
                 height: 10,
               ),
-              Flexible(
-                child: Text(
-                  description,
-                  style: textStyle,
+              Visibility(
+                visible: isMobile && !lessThan500,
+                child: Flexible(
+                  child: Text(
+                    description,
+                    style: textStyle,
+                  ),
                 ),
               ),
             ],
