@@ -37,6 +37,7 @@ class MobileLayout extends StatelessWidget {
               [
                 const Header(
                   fit: BoxFit.cover,
+                  isMobile: true,
                 ),
                 AboutKimberlyMobile(
                   constraints: constraints,

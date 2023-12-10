@@ -6,13 +6,15 @@ class Header extends StatelessWidget {
     super.key,
     required this.fit,
     this.height,
+    this.isMobile = false,
   });
 
   final BoxFit fit;
   final double? height;
+  final bool isMobile;
 
   TextStyle get textStyle => GoogleFonts.roboto(
-        fontSize: 45,
+        fontSize: isMobile ? 30: 45,
         color: Colors.white,
         fontWeight: FontWeight.bold,
       );
@@ -40,7 +42,7 @@ class Header extends StatelessWidget {
               child: Text(
                 'Soluções jurídicas sólidas, compromisso inabalável.\nSeu sucesso é nossa missão.',
                 style: textStyle,
-                maxLines: 2,
+                maxLines: isMobile?  3 : 2,
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.left,
               ),

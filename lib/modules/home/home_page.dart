@@ -79,8 +79,7 @@ class _HomePageState extends State<HomePage> {
             },
             icon: SvgPicture.asset(
               'assets/whatsapp.svg',
-              colorFilter:
-                  const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+              color: Colors.white,
             ),
             label: Text(
               'Fale conosco!',
