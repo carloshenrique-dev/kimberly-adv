@@ -45,8 +45,6 @@ class AreaCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool isMobile = constraints != null;
-
     return Card(
       color: Colors.white,
       child: Padding(
@@ -76,7 +74,7 @@ class AreaCard extends StatelessWidget {
                 height: 10,
               ),
               Visibility(
-                visible: isMobile && !lessThan500,
+                visible: ((isMobile && !lessThan500) || !isMobile),
                 child: Flexible(
                   child: Text(
                     description,
