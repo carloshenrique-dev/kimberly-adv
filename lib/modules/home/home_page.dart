@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kimberly/core/repositories/links_repository.dart';
 import 'package:kimberly/core/repositories/links_repository_impl.dart';
@@ -77,8 +76,11 @@ class _HomePageState extends State<HomePage> {
                 throw Exception('Could not launch $url');
               }
             },
-            icon: SvgPicture.asset(
-              'assets/whatsapp.svg',
+            icon: Image.asset(
+              'assets/whatsapp.png',
+              height: 24,
+              width: 24,
+              color: Colors.white,
             ),
             label: Text(
               'Fale conosco!',
