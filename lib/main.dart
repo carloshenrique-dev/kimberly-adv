@@ -24,6 +24,23 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        inputDecorationTheme: InputDecorationTheme(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10.0), // Borda arredondada
+            borderSide: const BorderSide(color: Colors.white, width: 2.0),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10.0), // Borda arredondada
+            borderSide: const BorderSide(color: Colors.white, width: 2.0),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10.0), // Borda arredondada
+            borderSide: const BorderSide(color: Colors.white, width: 2.0),
+          ),
+          errorStyle: const TextStyle(color: Colors.white),
+          labelStyle: const TextStyle(color: Colors.white),
+          hintStyle: const TextStyle(color: Colors.white),
+        ),
         useMaterial3: false,
       ),
       routerConfig: router,

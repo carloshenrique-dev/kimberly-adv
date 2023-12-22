@@ -3,6 +3,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kimberly/core/consts/consts.dart';
 import 'package:kimberly/core/ui/widgets/carousel_widget.dart';
+import 'package:kimberly/core/ui/widgets/contact_form.dart';
 import 'package:kimberly/core/ui/widgets/header.dart';
 
 import '../widgets/about_kimberly_mobile.dart';
@@ -18,7 +19,7 @@ class MobileLayout extends StatelessWidget {
   });
 
   TextStyle get titleStyle => GoogleFonts.roboto(
-        fontSize: 35,
+        fontSize: 25,
         color: Colors.white,
         fontWeight: FontWeight.bold,
       );
@@ -36,6 +37,7 @@ class MobileLayout extends StatelessWidget {
                 const Header(
                   fit: BoxFit.cover,
                   isMobile: true,
+                  logoSize: 100,
                 ),
                 AboutKimberlyMobile(
                   constraints: constraints,
@@ -48,6 +50,7 @@ class MobileLayout extends StatelessWidget {
                   child: Text(
                     'Parceiros e clientes',
                     style: titleStyle,
+                    textAlign: TextAlign.center,
                   ),
                 ),
                 const SizedBox(
@@ -65,6 +68,7 @@ class MobileLayout extends StatelessWidget {
                   child: Text(
                     'Áreas de atuação',
                     style: titleStyle,
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ],
@@ -93,6 +97,11 @@ class MobileLayout extends StatelessWidget {
                     LandingPageConsts.getAreaCards(constraints)[index],
                 childCount: LandingPageConsts.getAreaCards(constraints).length,
               ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: ContactForm(
+              constraints: constraints,
             ),
           )
         ],
