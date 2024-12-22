@@ -10,10 +10,11 @@ final router = GoRouter(
       path: '/home',
       name: Pages.splash.name,
       builder: (context, state) {
-        Future.delayed(const Duration(seconds: 2), () {
-          context.goNamed('home');
+        Future.delayed(const Duration(milliseconds: 200), () {
+          if (context.mounted) {
+            context.goNamed('home');
+          }
         });
-
         return const SplashPage();
       },
     ),

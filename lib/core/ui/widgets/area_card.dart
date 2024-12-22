@@ -16,15 +16,15 @@ class AreaCard extends StatelessWidget {
   });
 
   TextStyle get titleStyle => GoogleFonts.roboto(
-        fontSize: constraints != null ? 20 : 28,
+        fontSize: constraints != null ? 18 : 24,
         color: Colors.black,
-        fontWeight: isMobile ? FontWeight.normal : FontWeight.bold,
+        fontWeight: FontWeight.w700,
       );
 
   TextStyle get textStyle => GoogleFonts.roboto(
-        fontSize: isMobile ? 16 : 22,
-        color: Colors.black,
-        fontWeight: FontWeight.normal,
+        fontSize: isMobile ? 14 : 18,
+        color: const Color(0xFF474747),
+        fontWeight: FontWeight.w400,
       );
 
   bool get lessThan500 {
@@ -47,39 +47,40 @@ class AreaCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: Colors.white,
+      elevation: 0,
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(12),
         child: IntrinsicHeight(
           child: Column(
-            crossAxisAlignment: isMobile && lessThan500
-                ? CrossAxisAlignment.center
-                : CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Icon(
-                icon,
-                size: isMobile && lessThan500 ? 40 : 50,
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Icon(
+                    icon,
+                    size: isMobile && lessThan500 ? 36 : 44,
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      title,
+                      style: titleStyle,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: isMobile ? 1 : 2,
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                ],
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              Text(
-                title,
-                style: titleStyle,
-                overflow: TextOverflow.ellipsis,
-                maxLines: isMobile ? 1 : 2,
-                textAlign: isMobile ? TextAlign.center : TextAlign.left,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
+              const SizedBox(height: 8),
               Visibility(
                 visible: ((isMobile && !lessThan500) || !isMobile),
-                child: Flexible(
-                  child: Text(
-                    description,
-                    style: textStyle,
-                  ),
+                child: Text(
+                  description,
+                  style: textStyle,
+                  textAlign: TextAlign.left,
                 ),
               ),
             ],

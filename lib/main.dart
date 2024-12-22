@@ -26,16 +26,16 @@ class App extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         inputDecorationTheme: InputDecorationTheme(
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.0), // Borda arredondada
-            borderSide: const BorderSide(color: Colors.white, width: 2.0),
+            borderRadius: BorderRadius.circular(10.0),
+            borderSide: const BorderSide(color: Colors.white, width: 1.0),
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.0), // Borda arredondada
-            borderSide: const BorderSide(color: Colors.white, width: 2.0),
+            borderRadius: BorderRadius.circular(10.0),
+            borderSide: const BorderSide(color: Colors.white, width: 1.0),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.0), // Borda arredondada
-            borderSide: const BorderSide(color: Colors.white, width: 2.0),
+            borderRadius: BorderRadius.circular(10.0),
+            borderSide: const BorderSide(color: Colors.white, width: 1.0),
           ),
           errorStyle: const TextStyle(color: Colors.white),
           labelStyle: const TextStyle(color: Colors.white),

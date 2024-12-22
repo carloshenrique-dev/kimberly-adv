@@ -48,7 +48,7 @@ class _ContactFormState extends State<ContactForm> {
   }
 
   TextStyle get titleStyle => GoogleFonts.roboto(
-        fontSize: 30,
+        fontSize: 24,
         color: Colors.white,
         fontWeight: FontWeight.bold,
       );
@@ -58,7 +58,7 @@ class _ContactFormState extends State<ContactForm> {
     return getLayout();
   }
 
-  getLayout() {
+  Widget getLayout() {
     if (widget.constraints < 600) {
       return minLayout();
     } else if (widget.constraints >= 600 && widget.constraints < 1024) {
@@ -105,12 +105,17 @@ class _ContactFormState extends State<ContactForm> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),
                   ),
+                  backgroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(horizontal: 5),
                 ),
-                child: const Text(
+                child: Text(
                   'Ver no mapa',
                   textAlign: TextAlign.center,
                   maxLines: 2,
+                  style: GoogleFonts.roboto(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
@@ -204,8 +209,15 @@ class _ContactFormState extends State<ContactForm> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0),
                         ),
+                        backgroundColor: Colors.white,
                       ),
-                      child: const Text('Enviar'),
+                      child: Text(
+                        'Enviar',
+                        style: GoogleFonts.roboto(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -219,10 +231,10 @@ class _ContactFormState extends State<ContactForm> {
 
   Widget maxWidthLayout() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+      padding: const EdgeInsets.all(20),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           if (widget.constraints > 1215)
             Form(
@@ -275,12 +287,17 @@ class _ContactFormState extends State<ContactForm> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
+                      backgroundColor: Colors.white,
                       padding: const EdgeInsets.symmetric(horizontal: 5),
                     ),
-                    child: const Text(
+                    child: Text(
                       'Ver no mapa',
                       textAlign: TextAlign.center,
                       maxLines: 2,
+                      style: GoogleFonts.roboto(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
@@ -316,19 +333,12 @@ class _ContactFormState extends State<ContactForm> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Contato',
-          style: titleStyle,
-        ),
-        const SizedBox(
-          height: 20,
-        ),
         TextFormField(
           controller: _nameController,
           decoration: const InputDecoration(
             labelText: 'Nome',
           ),
-          style: const TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.grey),
           validator: Validatorless.multiple(
             [
               Validatorless.required('Nome obrigatório'),
@@ -378,8 +388,15 @@ class _ContactFormState extends State<ContactForm> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0),
                 ),
+                backgroundColor: Colors.white,
               ),
-              child: const Text('Enviar'),
+              child: Text(
+                'Enviar',
+                style: GoogleFonts.roboto(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
           ),
         ),

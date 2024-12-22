@@ -65,21 +65,21 @@ sealed class LandingPageConsts {
       AreaCard(
         title: 'Tributário',
         description:
-            'Suporte abrangente para planejamento tributário, redução da carga tributária e resolução de questões relacionadas a impostos, tanto em contextos contenciosos quanto consultivos. Nossa equipe jurídica está bem preparada para otimizar a gestão tributária de sua empresa, garantindo conformidade e maximizando economias.',
+            'Suporte abrangente para planejamento tributário, redução da carga tributária e resolução de questões relacionadas a impostos, tanto em contextos contenciosos quanto consultivos. Defendemos seus interesses em litígios fiscais e tributários.',
         icon: Icons.attach_money,
         constraints: constraints,
       ),
       AreaCard(
         title: 'Direito Canábico',
         description:
-            'Oferecemos assessoria jurídica especializada, incluindo serviços de consultoria, habeas corpus e ações públicas relacionadas ao uso e regulamentação de cannabis.',
+            'Oferecemos assessoria jurídica especializada, incluindo serviços de consultoria, habeas corpus e ações públicas relacionadas ao uso e regulamentação de cannabis. Atuamos para garantir seus direitos dentro da legislação vigente.',
         icon: Icons.eco,
         constraints: constraints,
       ),
       AreaCard(
         title: 'Mediação judicial\ne extrajudicial',
         description:
-            'Assessoria, acompanhamento de acordos, implementação de composição pré processo e no decorrer do processo, utilização de humanização e pacificação',
+            'Assessoria, acompanhamento de acordos, implementação de composição pré processo e no decorrer do processo, utilização de humanização e pacificação. Facilitamos a resolução de conflitos de forma eficiente e amigável.',
         icon: Icons.handshake,
         constraints: constraints,
       ),
@@ -90,6 +90,15 @@ sealed class LandingPageConsts {
         icon: Icons.edit_document,
         constraints: constraints,
       ),
+    ];
+  }
+
+  static List<String> get images {
+    return [
+      'assets/pose_1.jpeg',
+      'assets/pose_2.jpeg',
+      'assets/pose_3.jpeg',
+      'assets/pose_4.jpeg',
     ];
   }
 }
