@@ -4,6 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:kimberly/core/ui/widgets/academic_timeline.dart';
 import 'package:kimberly/core/ui/widgets/work_timeline.dart';
 
+import 'swiper.dart';
+
 class AboutKimberlyMobile extends StatelessWidget {
   final double constraints;
   const AboutKimberlyMobile({
@@ -76,17 +78,8 @@ class AboutKimberlyMobile extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(
-          width: 20,
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 40, left: 20, right: 20),
-          child: Image.asset(
-            'assets/profile.png',
-            height: 600,
-            fit: BoxFit.contain,
-          ),
-        ),
+        const PhotoSwiper(),
+        const SizedBox(height: 20),
         const WorkTimeline(),
         const SizedBox(
           height: 20,

@@ -1,11 +1,10 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kimberly/core/ui/widgets/academic_timeline.dart';
 import 'package:kimberly/core/ui/widgets/work_timeline.dart';
 
-import '../../consts/consts.dart';
+import 'swiper.dart';
 
 class AboutKimberly extends StatelessWidget {
   final double constraints;
@@ -84,40 +83,16 @@ class AboutKimberly extends StatelessWidget {
             ),
             Visibility(
               visible: constraints > 850,
-              child: Swiper(
-                autoplay: true,
-                duration: 2,
-                itemBuilder: (BuildContext context, int index) {
-                  return ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
-                    child: Image.asset(
-                      LandingPageConsts.images[index],
-                      height: 600,
-                      fit: BoxFit.cover,
-                    ),
-                  );
-                },
-                itemCount: LandingPageConsts.images.length,
-                itemWidth: 300.0,
-                itemHeight: 600,
-                layout: SwiperLayout.TINDER,
-              ),
+              child: const PhotoSwiper(),
             ),
           ],
         ),
         Visibility(
           visible: constraints <= 850,
-          child: Padding(
-            padding: const EdgeInsets.only(top: 60),
-            child: Image.asset(
-              'assets/profile.png',
-              height: 600,
-              fit: BoxFit.fitWidth,
-            ),
-          ),
+          child: const PhotoSwiper(),
         ),
         const Padding(
-          padding: EdgeInsets.only(left: 50, right: 150),
+          padding: EdgeInsets.only(left: 50, right: 150, top: 20),
           child: WorkTimeline(),
         ),
         const SizedBox(
