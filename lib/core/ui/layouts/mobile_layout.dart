@@ -4,6 +4,7 @@ import 'package:kimberly/core/ui/widgets/contact_form.dart';
 import 'package:kimberly/core/ui/widgets/header.dart';
 
 import '../widgets/about_kimberly_mobile.dart';
+import '../widgets/carousel_widget.dart';
 import '../widgets/services.dart';
 
 class MobileLayout extends StatelessWidget {
@@ -42,6 +43,20 @@ class MobileLayout extends StatelessWidget {
                 ),
                 const SizedBox(
                   height: 30,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 20, left: 20),
+                  child: Text(
+                    'Parceiros e clientes',
+                    style: GoogleFonts.roboto(
+                      fontSize: 35,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                const CarouselWidget(
+                  isMobile: true,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 20, left: 20),

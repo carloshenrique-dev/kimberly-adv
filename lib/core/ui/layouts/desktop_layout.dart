@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kimberly/core/ui/widgets/carousel_widget.dart';
 import 'package:kimberly/core/ui/widgets/contact_form.dart';
 import 'package:kimberly/core/ui/widgets/header.dart';
 
@@ -42,6 +43,20 @@ class DesktopLayout extends StatelessWidget {
                 ),
                 const SizedBox(
                   height: 30,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 20, left: 20),
+                  child: Text(
+                    'Parceiros e clientes',
+                    style: GoogleFonts.roboto(
+                      fontSize: 35,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                const CarouselWidget(
+                  isMobile: false,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 20, left: 20),
